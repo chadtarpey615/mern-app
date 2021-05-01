@@ -1,4 +1,4 @@
-import app from "./server";
+import app from "./server.js";
 import mongodb from "mongodb";
 import dotenv from "dotenv";
 dotenv.config();
@@ -23,3 +23,4 @@ MongoClient.connect(
             console.log(`Listening on port ${port}`)
         })
     })
+
