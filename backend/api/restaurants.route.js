@@ -5,7 +5,8 @@ import ReviewsCtrl from "../api/reviews.controller.js"
 const router = express.Router();
 
 router.route("/").get(RestaurantsCtrl.apiGetRestaurants);
-
+router.route("/id/:id").get(RestaurantsCtrl.apiGetRestaurantById)
+router.route("/cuisine").get(RestaurantsCtrl.apiGetRestaurantCuisine)
 
 router.route("/review")
     .post(ReviewsCtrl.apiPostReview)
