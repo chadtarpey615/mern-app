@@ -1,8 +1,9 @@
 import React from "react";
+import RestaurantsDAO from "../../../backend/dao/restaurantsDAO";
 
 
 
-function Login() {
+function Restaurants() {
     return (
         <div className="App">
             hello world
@@ -10,4 +11,5 @@ function Login() {
     );
 }
 
-export default Login;
+export default Restaurants;
+
