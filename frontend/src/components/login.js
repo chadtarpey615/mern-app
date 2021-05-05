@@ -44,11 +44,11 @@ const Login = (props) => {
                     <input
                         type="text"
                         className="form-control"
-                        id="name"
+                        id="id"
                         required
                         value={user.id}
                         onChange={handleInputChange}
-                        name="name"
+                        name="id"
                     />
                 </div>
                 <button onClick={login} className="btn btn-success"></button>
