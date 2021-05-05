@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import RestaurantDataService from "../services/restaurant";
+import RestaurantDataService from "../services/restaurant.js";
 import { Link } from "react-router-dom";
 
 
@@ -15,7 +15,7 @@ const RestaurantList = props => {
     useEffect(() => {
         retrieveRestaurants();
         retrieveCuisines();
-    }, [])
+    }, []);
 
     const onChangeSearchName = e => {
         const searchName = e.target.value;
@@ -35,13 +35,14 @@ const RestaurantList = props => {
     const retrieveRestaurants = () => {
         RestaurantDataService.getAll()
             .then(response => {
-                console.log(response.data)
-                setRestaurants(response.data.restaurants)
+                console.log(response.data);
+                setRestaurants(response.data.restaurants);
+
             })
             .catch(e => {
-                console.log(e)
-            })
-    }
+                console.log(e);
+            });
+    };
 
     const retrieveCuisines = () => {
         RestaurantDataService.getCuisines()
@@ -137,7 +138,7 @@ const RestaurantList = props => {
             </div>
             <div className="row">
                 {restaurants.map((restaurant) => {
-                    const address = `${restaurant.address.building} ${restaurant.address.street} ${restaurant.address.zipcode}`
+                    const address = `${restaurant.address.building} ${restaurant.address.street}, ${restaurant.address.zipcode}`;
                     return (
                         <div className="col-lg-4 pb-1">
                             <div className="card">
@@ -145,7 +146,7 @@ const RestaurantList = props => {
                                     <h5 className="card-title">{restaurant.name}</h5>
                                     <p className="card-text">
                                         <strong>Cuisine: </strong>{restaurant.cuisine}<br />
-                                        <strong>Address: </strong>{restaurant.address}<br />
+                                        <strong>Address: </strong>{address}
                                     </p>
                                     <div className="row">
                                         <Link to={"/restaurants/" + restaurant._id} className="btn btn-primary col-lg-5 mx-1 mb-1">
