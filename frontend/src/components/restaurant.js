@@ -50,13 +50,13 @@ const Restaurant = (props) => {
                 <div>
                     <h5>{restaurant.name}</h5>
                     <p>
-                        <strong>Cuisine:</strong>{restaurant.cuisine}<br />
-                        <strong>Address:</strong>{restaurant.address.building} {restaurant.address.street}, {restaurant.address.zipcode}
+                        <strong>Cuisine: </strong>{restaurant.cuisine}<br />
+                        <strong>Address: </strong>{restaurant.address.building} {restaurant.address.street}, {restaurant.address.zipcode}
                     </p>
                     <Link to={"/restaurants/" + props.match.params.id + "/review"} className="btn btn-primary">
                         Add Review
-                    </Link>
-                    <h4>Reviews</h4>
+            </Link>
+                    <h4> Reviews </h4>
                     <div className="row">
                         {restaurant.reviews.length > 0 ? (
                             restaurant.reviews.map((review, index) => {
@@ -77,28 +77,28 @@ const Restaurant = (props) => {
                                                             state: {
                                                                 currentReview: review
                                                             }
-                                                        }} className="btn btn-primary col-lg-5 mx-1 mb-1">Edit </Link>
+                                                        }} className="btn btn-primary col-lg-5 mx-1 mb-1">Edit</Link>
                                                     </div>
                                                 }
                                             </div>
                                         </div>
                                     </div>
-                                )
+                                );
                             })
                         ) : (
                                 <div className="col-sm-4">
-                                    <p>No Reviews yet.</p>
+                                    <p>No reviews yet.</p>
                                 </div>
                             )}
+
                     </div>
 
                 </div>
             ) : (
                     <div>
                         <br />
-                        <p>No restaurant selected</p>
+                        <p>No restaurant selected.</p>
                     </div>
-
                 )}
         </div>
     );
